@@ -1,59 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+<!-- 
+Tony.Solar, Feb 12th 2021 - File Init
+Tony.Solar, May 15th 2021 - Modified
+Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
+-->
+
 <head>
 	<meta charset="UTF-8">
 	<title>CnR : Next Generation</title>
 	<style type="text/css">
 		@charset "UTF-8";
-		body:text {cursor: default;}
-		body:hover {cursor: default;}
+
 		html {
-		  height:100%;
-		  background:#000;
-		  display:flex;
-		  background-repeat:no-repeat;
-		  background-size:cover;
+			height: 100%;
+			background: #000;
+			display: flex;
+			background-repeat: no-repeat;
+			background-size: cover;
 		}
+
 		a.hide:link,
 		a.hide:active,
 		a.hide:hover,
 		a.hide:visited {
-		  color:#FCFCFC;
-		  cursor:default;
-		  text-decoration:none;
+			color: #FCFCFC;
+			cursor: default;
+			text-decoration: none;
 		}
+
 		span.hide {
-		  position:absolute;
-		  right:2px;
-		  top:2px;
+			position: absolute;
+			right: 2px;
+			top: 2px;
 		}
+
 		div.copy {
-		  position:absolute;
-		  bottom:0;
-		  margin:auto;
-		  width:100%;
-		  text-align:center;
-		  color:#CCC;
+			position: absolute;
+			bottom: 0;
+			margin: auto;
+			width: 100%;
+			text-align: center;
+			color: #CCC;
 		}
+
 		body {
-		  line-height:20px;
-		  margin:0;
-		  background-color:#2f3136;
-		  color:#FFF;
-		  font-family:verdana;
+			line-height: 20px;
+			margin: 0;
+			background-color: #2f3136;
+			color: #FFF;
+			font-family: verdana;
 		}
+
 		A:link,
 		A:visited {
-		  font-family:verdana;
+			font-family: verdana;
 		}
+
 		A:hover {
-		  color:red;
+			color: red;
 		}
+
 		IMG {
-		  margin:auto;
-		  margin-top:50px;
-		  display:block;
+			margin: auto;
+			margin-top: 50px;
+			display: block;
 		}
+
 		.cnrnglogo-dark-blue,
 		.cnrnglogo-dark-purple,
 		.cnrnglogo-limegreen,
@@ -62,175 +75,214 @@
 		.cnrnglogo-purple,
 		.cnrnglogo-red,
 		.cnrnglogo-teal {
-		  display:inline-block;
-		  background-size:cover;
-		  overflow:hidden;
-		  text-indent:-9999px;
-		  text-align:left;
+			display: inline-block;
+			background-size: cover;
+			overflow: hidden;
+			text-indent: -9999px;
+			text-align: left;
 		}
+
 		.cnrnglogo {
-		  background-size:contain;
-		  border-top-left-radius: 5px;
-		  border-top-right-radius: 5px;
-		  width: 525px;
-		  height: 146px;
-		  margin-left:75px;
+			background-size: contain;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			width: 525px;
+			height: 146px;
+			margin-left: 75px;
 		}
+
 		#main-container {
-		  position:fixed;
-		  /*top:50%;*/
-		  left:50%;
-		  /*margin-top:-17em;*/
-		  margin-left:-19.75em;
-		  width:min-content;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-top: -17em;
+			margin-left: -19.75em;
+			width: min-content;
 		}
+
 		#logo-container {
-		  border-top-left-radius:5px;
-		  border-top-right-radius:5px;
-		  width:525px;
-		  height:146px;
-		  margin-bottom:4px;
-		  margin-top:15px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			width: 525px;
+			height: 146px;
+			margin-bottom: 4px;
+			margin-top: 15px;
 		}
+
 		.rules-table {
-		  border-radius:5px;
-		  background-color:rgba(0,0,0,1);
-		  width:100%;
-		  padding:5px;
+			border-radius: 5px;
+			background-color: rgba(0, 0, 0, 1);
+			width: 100%;
+			padding: 5px;
 		}
+
 		.gradient-box {
-		  display:flex;
-		  align-items:center;
-		  min-width:643px;
-		  position:relative;
-		  box-sizing:border-box;
-		  color:#FFF;
-		  background:#000;
-		  background-clip:padding-box;
-		  border:solid 5px transparent;
-		  border-radius:.5em;
-		  box-shadow:0 0 8px #000;
+			display: flex;
+			align-items: center;
+			min-width: 643px;
+			position: relative;
+			box-sizing: border-box;
+			color: #FFF;
+			background: #000;
+			background-clip: padding-box;
+			border: solid 5px transparent;
+			border-radius: .5em;
+			box-shadow: 0 0 8px #000;
 		}
+
 		.gradient-box-container {
-		  top:0;
-		  right:0;
-		  bottom:0;
-		  left:0;
-		  z-index:-1;
-		  margin:-5px;
-		  border-radius:inherit;
-		  background-color:#373740;
-		  background-image:repeating-linear-gradient(153deg,#413644 -18%,#4e4e4e -23%,red 25%,#0089ff 63%,#4E4E4F 90%);
-		  border-radius:.5em;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			margin: -5px;
+			border-radius: inherit;
+			background-color: #373740;
+			background-image: repeating-linear-gradient(153deg, #413644 -18%, #4e4e4e -23%, red 25%, #0089ff 63%, #4E4E4F 90%);
+			border-radius: .5em;
 		}
+
 		.gradient-backdrop {
-		  background:linear-gradient(-2deg,rgba(0,0,0,1) 47%,rgba(41,41,41,1) 67%,rgba(0,0,0,0.47102591036414565) 96%);
-		  border-top-left-radius:5px;
-		  border-top-left-radius:5px;
-		  border-top-right-radius:5px;
+			background: linear-gradient(-2deg, rgba(0, 0, 0, 1) 47%, rgba(41, 41, 41, 1) 67%, rgba(0, 0, 0, 0.47102591036414565) 96%);
+			border-top-left-radius: 5px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
 		}
+
 		.AlertContent {
-		  vertical-align:middle;
-		  padding:3px;
-		  height:100%;
-		  margin:0;
-		  position:relative;
-		  background-color:rgba(0,0,0,0.8);
-		  color:#f0f0f0;
-		  top:0;
-		  text-align:center;
+			vertical-align: middle;
+			padding: 3px;
+			height: 100%;
+			margin: 0;
+			position: relative;
+			background-color: rgba(0, 0, 0, 0.8);
+			color: #f0f0f0;
+			top: 0;
+			text-align: center;
 		}
+
 		.AlertWrapper {
-		  box-shadow:0 0 8px #000;
-		  --d:100px;
-		  --angle:120deg;
-		  --sinus:.266;
-		  --alvl:.7;
-		  height:100%;
-		  position:relative;
-		  z-index:0;
-		  background:#131313;
-		  text-align:center;
-		  color:#fff;
-		  margin:0;
-		  display:block;
-		  padding:5px;
-		  background-image:repeating-linear-gradient(var(--angle),rgba(0,0,0,var(--alvl)) 0px,rgba(0,0,0,var(--alvl)) 25px,rgba(244,156,4,var(--alvl)) 25px,rgba(244,156,4,var(--alvl)) var(--d));
-		  background-size:calc(var(--d)/var(--sinus)) 100%;
-		  animation:AnimateThis 2s linear infinite reverse;
-		  margin-top:20px;
+			box-shadow: 0 0 8px #000;
+			--d: 100px;
+			--angle: 120deg;
+			--sinus: .266;
+			--alvl: .7;
+			height: 100%;
+			position: relative;
+			z-index: 0;
+			background: #131313;
+			text-align: center;
+			color: #fff;
+			margin: 0;
+			display: block;
+			padding: 5px;
+			background-image: repeating-linear-gradient(var(--angle), rgba(0, 0, 0, var(--alvl)) 0px, rgba(0, 0, 0, var(--alvl)) 25px, rgba(244, 156, 4, var(--alvl)) 25px, rgba(244, 156, 4, var(--alvl)) var(--d));
+			background-size: calc(var(--d)/var(--sinus)) 100%;
+			animation: AnimateThis 2s linear infinite reverse;
+			margin-top: 20px;
 		}
 
 		@keyframes AnimateThis {
-		  0% {
-			background-position:calc(var(--d)/var(--sinus)) 0;
-		  }
+			0% {
+				background-position: calc(var(--d)/var(--sinus)) 0;
+			}
 		}
+
 		#bgmusic {
-		  display: none;
+			display: none;
 		}
+
 		#loadtime {
-		  margin-top:10px;
-		  border-radius:.5em;
-		  background-color:rgba(0,0,0,0.8);
-		  padding:5px;
-		  box-shadow:0 0 8px #000;
-		  text-align:center;
+			margin-top: 10px;
+			border-radius: .5em;
+			background-color: rgba(0, 0, 0, 0.8);
+			padding: 5px;
+			box-shadow: 0 0 8px #000;
+			text-align: center;
 		}
+
 		#background-container {
-		  height:100%;
-		  width:100%;
-		  background:#000;
-		  display:flex;
-		  background-repeat:no-repeat;
-		  background-size:cover;
-		  z-index:-999;
+			height: 100%;
+			width: 100%;
+			background: #000;
+			display: flex;
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: -999;
 		}
-		#devCon {
-		  margin-top:10px;
-		  min-height:106px;
-		  border-radius:.5em;
-		  background-color:rgba(0,0,0,0.8);
-		  padding:5px;
-		  /*box-shadow:0 0 8px #000;*/
-		  text-align:center;
-		  display:block;		  
-		  border: 2px solid #ff1300;
+
+		.video-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background: url('./cover.png') no-repeat center center/cover;
+		}
+
+		.video-container video {
+			min-width: 100%;
+			min-height: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			object-fit: cover;
+		}
+
+		.video-container:after {
+			content: '';
+			z-index: 0;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.3);
+			position: absolute;
 		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
-	<!-- <div style="position: fixed; z-index: -99; width: 100%; height: 100%"> -->
-	<div id="bgmusic-container">
+	<div style="position: fixed; z-index: -99; width: 100%; height: 100%">
 		<div id="bgmusic"></div>
 		<!-- https://youtu.be/fsnZpUXCUt4?list=PL26y6a0sSX_B-l8ccARWgYP3nw3NKHzSF&t=1726 -->
 		<!-- <iframe frameborder="0" height="100%" width="100%" border="0" src="https://youtube.com/embed/fsnZpUXCUt4?t=1726&autoplay=1&controls=0&showinfo=0&autohide=1"></iframe> -->
 		<!-- <iframe name="bgmusic" "frameborder="0" height="0px" width="0px" border="0"></iframe> -->
 	</div>
-	<div class="background-container"></div>
+	<!-- <div class="background-container"></div> -->
+	<div class="video-container">
+		<video src="/LoadingScreenNormal/assets/video.mp4" autoplay muted loop></video>
+	</div>
 	<div id="main-container">
 		<div class='gradient-backdrop'>
 			<div id='logo-container'>
-			
+
 			</div>
 		</div>
 		<div class='gradient-box-container'>
-		<div id='rules-div' class='gradient-box'>
+			<div id='rules-div' class='gradient-box'>
 				<table class="rules-table">
 					<tr>
 						<td style="text-align:top;">
 							<ul>
 								<li>No deathmatching/random killing</li>
 								<li>Respect other players</li>
-								<li>No advertising/spamming</li>								
+								<li>No advertising/spamming</li>
 							</ul>
 						</td>
 						<td>
 							<ul>
 								<li>No cheating/illegal advantage</li>
 								<li>Do not quit to avoid anything</li>
-								<li>Read <b><font color='#FFFF00'>/rules</font></b> and <b><font color='#FFFF00'>/faq</font></b></li>
+								<li>Read <b>
+										<font color='#FFFF00'>/rules</font>
+									</b> and <b>
+										<font color='#FFFF00'>/faq</font>
+									</b></li>
 							</ul>
 						</td>
 					</tr>
@@ -239,35 +291,46 @@
 		</div>
 		<div id="AlertWrapper" class="AlertWrapper" style="--d:50px;--angle:-30deg;--sinus:0.5;">
 			<div class="AlertContent">
-				<br><b><font color='#FFFF00'>Open Beta Disclaimer</font><br><br>
-				Hello <span id="PlayerName">[PlayerName]</span>, please note that the current iteration of the game mode is still in development, and the current features may not be final and are subject to change. The feedback from the community is welcome!<br><br>
-				Please report bugs and make your suggestions at: <i><font color='#FFFF00'>forums.cnr.ng</font></i><br><br>
-				Join us on Discord! <i><font color='#FFFF00'>cnr.ng/discord</font></i><br><br>
-				<i>Welcome and have fun!</i></b><br><br>
+				<br><b>
+					<font color='#FFFF00'>Open Beta Disclaimer</font><br><br>
+					Please note that the current iteration of the game mode is still in development, and the current
+					features may not be final and are subject to change. The feedback from the community is
+					welcome!<br><br>
+					Please report bugs and make your suggestions at: <i>
+						<font color='#FFFF00'>forums.cnr.ng</font>
+					</i><br><br>
+					Join us on Discord! <i>
+						<font color='#FFFF00'>cnr.ng/discord</font>
+					</i><br><br>
+					<i>Welcome and have fun!</i>
+				</b><br><br>
 			</div>
 		</div>
 		<div id="loadtime">
-			Average load time between 00:10 <-> 00:45 secs<br/>Your time: [<label id="minutes">00</label>:<label id="seconds">00</label>]
+			Average load time between 00:10 <-> 00:45 secs<br />Your time: [<label id="minutes">00</label>:<label
+					id="seconds">00</label>]
 		</div>
-		<span id="devCon"></span>
 	</div>
+	<span id="namePlaceholder">
+		<!--holder-->
+	</span>
 </body>
 <script>
 	let PlayerVol;
 
 	function setTime() {
-	  ++totalSeconds;
-	  secondsLabel.innerHTML = pad(totalSeconds % 60);
-	  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+		++totalSeconds;
+		secondsLabel.innerHTML = pad(totalSeconds % 60);
+		minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
 	}
 
 	function pad(val) {
-	  var valString = val + "";
-	  if (valString.length < 2) {
-	    return "0" + valString;
-	  } else {
-	    return valString;
-	  }
+		var valString = val + "";
+		if (valString.length < 2) {
+			return "0" + valString;
+		} else {
+			return valString;
+		}
 	}
 
 	var minutesLabel = document.getElementById("minutes");
@@ -278,23 +341,22 @@
 	var music_bank = ['jqE8M2ZnFL8', 'CJZ0a5WXooQ', 'w4sT7sHMeCw', 'D3Lvm1tv1mE', 'Q_5z4n5TZ2Q', 'OyHddNCbBfY', '6VewzN781wQ', 'qJlGXlNgtok', 'lv6mWA7OQiM', 'uv2dQwm9F4U', 'cETBCvKnu0Q', 'ArA3bkumvoI', 'urm2W7RsvPM', 'F2_pg8xd1To', '5qM5zGXWw60, Kam8XAeDvVU', 'lal3nu4QUHk'];
 	var start_times = [0, 0, 0, 10, 27, 0, 18, 22, 30, 16, 8, 80, 0, 122, 70, 0, 0];
 	var randIdx = Math.floor(Math.random() * music_bank.length);
-	var music_selected =  music_bank[randIdx];
+	var music_selected = music_bank[randIdx];
 	var start_time = start_times[randIdx];
-	$("span[id=devCon]").append('Music Selected: '+music_selected+'<br />');
 
-	$(function() {
-		
+	$(function () {
+
 		//$('#gradient-backdrop').html('<div class="cnrnglogo"></div>');	
-		$('#logo-container').html('<div class="cnrnglogo"></div>');	
-		$('.cnrnglogo').css({"background":"url(./imgs/logos/logo"+Math.floor(Math.random() * 8)+".png) no-repeat","background-size":"contain"});
-		$('html').css({"background-image":"url(./imgs/backgrounds/bg"+Math.floor(Math.random() * 7)+".jpg)"});
+		$('#logo-container').html('<div class="cnrnglogo"></div>');
+		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
+		// $('html').css({"background-image":"url(./imgs/backgrounds/bg"+Math.floor(Math.random() * 7)+".jpg)"});
 		// $('#bgmusic').html('<iframe name="player" id="player" frameborder="0" height="1px" width="1px" border="0" src="https://youtube.com/embed/'+music_selected+'?&autoplay=1&controls=0&showinfo=0&autohide=1&enablejsapi=1&origin=http://127.0.0.1:5500" allow="autoplay"></iframe>');
 
 		let degrees = 0;
-		runner = setInterval(function(){
-			degrees = degrees+10;
+		runner = setInterval(function () {
+			degrees = degrees + 10;
 			if (degrees >= 355) { degrees = 0; }
-			$('.gradient-box-container').css({ "background-image":"repeating-linear-gradient("+degrees+"deg, #413644 -18%,#4e4e4e -23%, #ff0000 25%, #0089ff 63%, #4E4E4F 90%)" });
+			$('.gradient-box-container').css({ "background-image": "repeating-linear-gradient(" + degrees + "deg, #413644 -18%,#4e4e4e -23%, #ff0000 25%, #0089ff 63%, #4E4E4F 90%)" });
 		}, 90)
 	});
 
@@ -306,50 +368,51 @@
 
 	var player;
 	function onYouTubeIframeAPIReady() {
-	player = new YT.Player('bgmusic', {
-	  width: 1280,
-	  height: 720,
-	  videoId: music_selected,
-	  startSeconds: start_time,
-	  playerVars: { 'autoplay': 1 },
-	  events: {
-		'onReady': onPlayerReady,
-		'onStateChange': onPlayerStateChange,
-		'onError': onPlayerError
-	  }
-	});
+		player = new YT.Player('bgmusic', {
+			width: 1280,
+			height: 720,
+			videoId: music_selected,
+			startSeconds: start_time,
+			playerVars: { 'autoplay': 1 },
+			events: {
+				'onReady': onPlayerReady,
+				'onStateChange': onPlayerStateChange,
+				'onError': onPlayerError
+			}
+		});
 	}
 
-	function convertVolume(PlayerVol){
+	function onPlayerStateChange() {
+
+	}
+
+	function onPlayerError() {
+	}
+
+	function convertVolume(PlayerVol) {
 		var VolMax = 1.0;
 		return Math.floor((PlayerVol / VolMax) * 100);
 	}
 
 	function onPlayerReady(event) {
-		$("span[id=devCon]").append('onPlayerReady()<br />');
+		/*$.getJSON('https://cnr.ng/calls/playervolume.php?username='+ window.nuiHandoverData.name, function(data) {
+			//document.querySelector('#namePlaceholder').innerText = `Player: ${window.nuiHandoverData.name}<br /> Vol: ${data.UserVolume}<br />`;
+			var ConVol = convertVolume(data.UserVolume);
+			console.log(`Player: ${window.nuiHandoverData.name} - Vol: ${data.UserVolume} - ConVol: ${ConVol}%`);
+			event.target.setVolume(ConVol);
+			event.target.seekTo(start_time);
+			event.target.playVideo();
+			console.log('Current Music Vol: '+event.target.getVolume()); // Shows 100% everytime
+		});*/
 		event.target.setVolume(25);
 		event.target.seekTo(start_time);
 		event.target.playVideo();
 	}
 
-	window.addEventListener('DOMContentLoaded', () => {
-		$("span[id=devCon]").append('Doc Loaded and Ready<br />');
-		console.log(window.nuiHandoverData.serverAddress);
-		$("#PlayerName").html(window.nuiHandoverData.name);	
-		$.getJSON('https://cnr.ng/calls/playervolume.php?username='+ window.nuiHandoverData.name, function(data) {
-			$("span[id=devCon]").append('Current User Music Vol: '+data.UserVolume+'<br />');
-			var ConVol = convertVolume(data.UserVolume);
-			var volData = `Player: ${window.nuiHandoverData.name} - Vol: ${data.UserVolume} - ConVol: ${ConVol}%`;
-			event.target.setVolume(ConVol);
-			event.target.seekTo(start_time);
-			event.target.playVideo();
-			$("span[id=devCon]").append(volData);
-
-			//$("span[id=devCon]").html('Current Music Vol: '+event.target.getVolume()+'<br />'+volData+'<br />');
-			//console.log('Current Music Vol: '+event.target.getVolume()); // Shows 100% everytimeS
-		});
-	});
+	/*window.addEventListener('DOMContentLoaded', () => {
+		console.log(`You are connecting to ${window.nuiHandoverData.serverAddress}`);
+		PlayerNick = window.nuiHandoverData.name;
+	});*/
 </script>
+
 </html>
-
-
