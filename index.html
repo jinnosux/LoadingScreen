@@ -88,25 +88,25 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 			border-top-right-radius: 5px;
 			width: 525px;
 			height: 146px;
-			margin-left: 75px;
 		}
 
 		#main-container {
 			position: fixed;
 			top: 50%;
 			left: 50%;
-			margin-top: -17em;
+			margin-top: -8em;
 			margin-left: -19.75em;
 			width: min-content;
 		}
 
 		#logo-container {
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+			position: fixed;
+			top: 15%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 			width: 525px;
 			height: 146px;
-			margin-bottom: 4px;
-			margin-top: 15px;
+			
 		}
 
 		.rules-table {
@@ -123,7 +123,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 			position: relative;
 			box-sizing: border-box;
 			color: #FFF;
-			background: #000;
+			background-color: rgba(0, 0, 0, 0.5);
 			background-clip: padding-box;
 			border: solid 5px transparent;
 			border-radius: .5em;
@@ -141,13 +141,6 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 			background-color: #373740;
 			background-image: repeating-linear-gradient(153deg, #413644 -18%, #4e4e4e -23%, red 25%, #0089ff 63%, #4E4E4F 90%);
 			border-radius: .5em;
-		}
-
-		.gradient-backdrop {
-			background-color: rgba(0, 0, 0, 0.7);
-			border-top-left-radius: 5px;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
 		}
 
 		.AlertContent {
@@ -235,7 +228,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 			width: 100%;
 			top: 0;
 			left: 0;
-			background: rgba(0, 0, 0, 0.3);
+			background: rgba(0, 0, 0, 0.4);
 			position: absolute;
 		}
 	</style>
@@ -253,12 +246,12 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 	<div class="video-container">
 		<video src="/assets/video.mp4" autoplay muted loop></video>
 	</div>
-	<div id="main-container">
-		<div class='gradient-backdrop'>
-			<div id='logo-container'>
-
-			</div>
+	
+		<div id='logo-container'>
 		</div>
+	
+	<div id="main-container">
+
 		<div class='gradient-box-container'>
 			<div id='rules-div' class='gradient-box'>
 				<table class="rules-table">
@@ -339,7 +332,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 
 		//$('#gradient-backdrop').html('<div class="cnrnglogo"></div>');	
 		$('#logo-container').html('<div class="cnrnglogo"></div>');
-		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
+		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain"});
 		// $('html').css({"background-image":"url(./imgs/backgrounds/bg"+Math.floor(Math.random() * 7)+".jpg)"});
 		// $('#bgmusic').html('<iframe name="player" id="player" frameborder="0" height="1px" width="1px" border="0" src="https://youtube.com/embed/'+music_selected+'?&autoplay=1&controls=0&showinfo=0&autohide=1&enablejsapi=1&origin=http://127.0.0.1:5500" allow="autoplay"></iframe>');
 
