@@ -111,7 +111,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 
 		.rules-table {
 			border-radius: 5px;
-			background-color: rgba(0, 0, 0, 1);
+			background-color: rgba(0, 0, 0, 0.7);
 			width: 100%;
 			padding: 5px;
 		}
@@ -144,7 +144,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 		}
 
 		.gradient-backdrop {
-			background: linear-gradient(-2deg, rgba(0, 0, 0, 1) 47%, rgba(41, 41, 41, 1) 67%, rgba(0, 0, 0, 0.47102591036414565) 96%);
+			background-color: rgba(0, 0, 0, 0.7);
 			border-top-left-radius: 5px;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
@@ -156,30 +156,26 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 			height: 100%;
 			margin: 0;
 			position: relative;
-			background-color: rgba(0, 0, 0, 0.8);
 			color: #f0f0f0;
 			top: 0;
 			text-align: center;
 		}
 
 		.AlertWrapper {
-			box-shadow: 0 0 8px #000;
-			--d: 100px;
-			--angle: 120deg;
-			--sinus: .266;
-			--alvl: .7;
 			height: 100%;
 			position: relative;
 			z-index: 0;
-			background: #131313;
+			background-color: rgba(0, 0, 0, 0.7);
+			border-radius: .5em;
+			box-shadow: 0 0 8px #000;
 			text-align: center;
 			color: #fff;
 			margin: 0;
 			display: block;
 			padding: 5px;
-			background-image: repeating-linear-gradient(var(--angle), rgba(0, 0, 0, var(--alvl)) 0px, rgba(0, 0, 0, var(--alvl)) 25px, rgba(244, 156, 4, var(--alvl)) 25px, rgba(244, 156, 4, var(--alvl)) var(--d));
-			background-size: calc(var(--d)/var(--sinus)) 100%;
-			animation: AnimateThis 2s linear infinite reverse;
+			/* background-image: repeating-linear-gradient(var(--angle), rgba(0, 0, 0, var(--alvl)) 0px, rgba(0, 0, 0, var(--alvl)) 25px, rgba(244, 156, 4, var(--alvl)) 25px, rgba(244, 156, 4, var(--alvl)) var(--d)); */
+			/* background-size: calc(var(--d)/var(--sinus)) 100%; */
+			/* animation: AnimateThis 2s linear infinite reverse; */
 			margin-top: 20px;
 		}
 
@@ -196,7 +192,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 		#loadtime {
 			margin-top: 10px;
 			border-radius: .5em;
-			background-color: rgba(0, 0, 0, 0.8);
+			background-color: rgba(0, 0, 0, 0.7);
 			padding: 5px;
 			box-shadow: 0 0 8px #000;
 			text-align: center;
@@ -205,7 +201,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 		#background-container {
 			height: 100%;
 			width: 100%;
-			background: #000;
+			background-color: rgba(0, 0, 0, 0.1);
 			display: flex;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -219,7 +215,7 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
-			background: url('./cover.png') no-repeat center center/cover;
+			background: url('./imgs/backgrounds/bg0.jpg') no-repeat center center/cover;
 		}
 
 		.video-container video {
