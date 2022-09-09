@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+<!-- Created By Tony.Solar, Feb 12th 2021 -->
+<head>
+	<meta charset="UTF-8">
+	<title>CnR : Next Generation</title>
+	<style type="text/css">
+		@charset "UTF-8";html{height:100%;background:#000;display:flex;background-repeat:no-repeat;background-size:cover}a.hide:link,a.hide:active,a.hide:hover,a.hide:visited{color:#FCFCFC;cursor:default;text-decoration:none}span.hide{position:absolute;right:2px;top:2px}div.copy{position:absolute;bottom:0;margin:auto;width:100%;text-align:center;color:#CCC}body{line-height:20px;margin:0;background-color:#2f3136;color:#FFF;font-family:verdana}A:link,A:visited{font-family:verdana}A:hover{color:red}IMG{<--margin:auto;--margin-top:50px;display:block}.cnrnglogo-dark-blue,.cnrnglogo-dark-purple,.cnrnglogo-limegreen,.cnrnglogo-orange,.cnrnglogo-piss-snow-yellow,.cnrnglogo-purple,.cnrnglogo-red,.cnrnglogo-teal{display:inline-block;background-size:cover;overflow:hidden;text-indent:-9999px;text-align:left}.cnrnglogo{width:764px;height:220px;background-size:contain}#main-container{position:fixed;top:50%;left:50%;margin-top:-17em;margin-left:-19.75em;width:min-content}#logo-container{border-top-left-radius:5px;border-top-right-radius:5px;width:525px;height:146px;margin-left:65px;margin-bottom:4px;margin-top:15px}.rules-table{border-radius:5px;background-color:rgba(0,0,0,1);width:100%;padding:5px}.gradient-box{display:flex;align-items:center;min-width:643px;position:relative;box-sizing:border-box;color:#FFF;background:#000;background-clip:padding-box;border:solid 5px transparent;border-radius:.5em;box-shadow:0 0 8px #000}.gradient-box-container{top:0;right:0;bottom:0;left:0;z-index:-1;margin:-5px;border-radius:inherit;background-color:#373740;background-image:repeating-linear-gradient(153deg,#413644 -18%,#4e4e4e -23%,red 25%,#0089ff 63%,#4E4E4F 90%);border-radius:.5em}.gradient-backdrop{background:linear-gradient(-2deg,rgba(0,0,0,1) 47%,rgba(41,41,41,1) 67%,rgba(0,0,0,0.47102591036414565) 96%);border-top-left-radius:5px;border-top-left-radius:5px;border-top-right-radius:5px}.AlertContent{vertical-align:middle;padding:3px;height:100%;margin:0;position:relative;background-color:rgba(0,0,0,0.8);color:#f0f0f0;top:0;text-align:center}.AlertWrapper{box-shadow:0 0 8px #000;--d:100px;--angle:120deg;--sinus:.266;--alvl:.7;height:100%;position:relative;z-index:0;background:#131313;text-align:center;color:#fff;margin:0;display:block;padding:5px;background-image:repeating-linear-gradient(var(--angle),rgba(0,0,0,var(--alvl)) 0px,rgba(0,0,0,var(--alvl)) 25px,rgba(244,156,4,var(--alvl)) 25px,rgba(244,156,4,var(--alvl)) var(--d));background-size:calc(var(--d)/var(--sinus)) 100%;animation:AnimateThis 2s linear infinite reverse;margin-top:20px}@keyframes AnimateThis{0%{background-position:calc(var(--d)/var(--sinus)) 0}}#loadtime{margin-top:10px;border-radius:.5em;background-color:rgba(0,0,0,0.8);padding:5px;box-shadow:0 0 8px #000;text-align:center}#background-container{height:100%;width:100%;background:#000;display:flex;background-repeat:no-repeat;background-size:cover;z-index:-999}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+		<div id="bgmusic"></div>
+		<!-- https://youtu.be/fsnZpUXCUt4?list=PL26y6a0sSX_B-l8ccARWgYP3nw3NKHzSF&t=1726 -->
+		<!-- <iframe frameborder="0" height="100%" width="100%" border="0" src="https://youtube.com/embed/fsnZpUXCUt4?t=1726&autoplay=1&controls=0&showinfo=0&autohide=1"></iframe> -->
+		<!-- <iframe name="bgmusic" "frameborder="0" height="0px" width="0px" border="0"></iframe> -->
+	</div>
+	<div class="background-container"></div>
+	<div id="main-container">
+		<div class='gradient-backdrop'>
+			<div id='logo-container'>
+			</div>
+		</div>
+		<div class='gradient-box-container'>
+		<div id='rules-div' class='gradient-box'>
+				<table class="rules-table">
+					<tr>
+						<td style="text-align:top;">
+							<ul>
+								<li>Respect admins</li>
+								<li>Respect other players</li>
+								<li>No deathmatching / Random killing</li>
+								<li>Cops: No attacking innocent civilians or teamkilling</li>
+								<li>No cheating / Exploiting bugs<br /></li>								
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<li>No mods</li>
+								<li>No advertising / spam</li>
+								<li>Do not quit to avoid ANYTHING</li>
+								<li>Drive properly!</li>
+								<li>Cops don't work with civilians</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="AlertWrapper" class="AlertWrapper" style="--d:50px;--angle:-30deg;--sinus:0.5;">
+			<div class="AlertContent">
+				<b>Development In Progress, Expect bugs and glitches<br>TIP: To see what FiveM is doing right now, press F8.</b>
+			</div>
+		</div>
+		<div id="loadtime">
+			Average load time between 00:10 <-> 01:00 secs<br/>Your Time [<label id="minutes">00</label>:<label id="seconds">00</label>]
+		</div>
+	</div>
+</body>
+<script>
+	function setTime() {
+	  ++totalSeconds;
+	  secondsLabel.innerHTML = pad(totalSeconds % 60);
+	  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+	}
+
+	function pad(val) {
+	  var valString = val + "";
+	  if (valString.length < 2) {
+	    return "0" + valString;
+	  } else {
+	    return valString;
+	  }
+	}
+
+	var minutesLabel = document.getElementById("minutes");
+	var secondsLabel = document.getElementById("seconds");
+	var totalSeconds = 0;
+	setInterval(setTime, 1000);
+
+	$(function() {
+		$('.cnrnglogo').css({"background":"url(./imgs/logos/logo"+Math.floor(Math.random() * 8)+".png) no-repeat","background-size":"contain"});
+		$('html').css({"background-image":"url(./imgs/backgrounds/bg"+Math.floor(Math.random() * 7)+".jpg)"});
+	
+		var music_bank = ['jqE8M2ZnFL8', 'CJZ0a5WXooQ','w4sT7sHMeCw'];
+		var music_selected =  music_bank[Math.floor(Math.random() * music_bank.length)];
+		$('#bgmusic').html('<iframe frameborder="0" height="1px" width="1px" border="0" src="https://youtube.com/embed/'+music_selected+'?&autoplay=1&controls=0&showinfo=0&autohide=1"></iframe>');
+
+		let degrees = 0;
+		runner = setInterval(function(){
+			degrees = degrees+10;
+			if (degrees >= 355) { degrees = 0; }
+			$('.gradient-box-container').css({ "background-image":"repeating-linear-gradient("+degrees+"deg, #413644 -18%,#4e4e4e -23%, #ff0000 25%, #0089ff 63%, #4E4E4F 90%)" });
+			$('#logo-container').html('<div class="cnrnglogo"></div>');
+
+		},100)
+	});
+</script>
+</html>
+
