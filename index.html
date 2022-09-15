@@ -4,8 +4,9 @@
 Tony.Solar, Feb 12th 2021 - File Init
 Tony.Solar, May 15th 2021 - Modified
 Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
+jinnosuke, Sept 5th 2022 - Added background video, moved logo to top
+jinnosuke, Sept 15th 2022 - Added fadein / opacity animations to logo and center elements
 -->
-
 <head>
 	<meta charset="UTF-8">
 	<title>CnR : Next Generation</title>
@@ -92,9 +93,8 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 
 		#main-container {
 			position: fixed;
-			top: 50%;
+			top: 30%;
 			left: 50%;
-			margin-top: -8em;
 			margin-left: -19.75em;
 			width: min-content;
 		}
@@ -374,6 +374,29 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 			display: none;
 		}
 
+		#icons {
+			margin-top: 10px;
+			border-radius: .5em;
+			background-color: rgba(0, 0, 0, 0.7);
+			padding: 5px;
+			box-shadow: 0 0 8px #000;
+			text-align: center;
+			-webkit-animation: fadein 4.5s;
+			/* Safari, Chrome and Opera > 12.1 */
+			-moz-animation: fadein 4.5s;
+			/* Firefox < 16 */
+			-ms-animation: fadein 4.5s;
+			/* Internet Explorer */
+			-o-animation: fadein 4.5s;
+			/* Opera < 12.1 */
+			animation: fadein 4.5s;
+		}
+
+		#icons .i{
+			display:inline-block;
+   			margin-right:1em;
+		}
+
 		#loadtime {
 			margin-top: 10px;
 			border-radius: .5em;
@@ -490,6 +513,10 @@ Tony.Solar, July 12th 2021 - Added volume control via players cnr radio settings
 					<i>Welcome and have fun!</i>
 				</b><br><br>
 			</div>
+		</div>
+		<div id="icons">
+			Socials:<br />
+			<i class="fa-brands fa-discord"></i>
 		</div>
 		<div id="loadtime">
 			Average load time between 00:10 <-> 00:45 secs<br />Your time: [<label id="minutes">00</label>:<label
