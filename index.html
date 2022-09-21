@@ -727,6 +727,17 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 		console.log(`You are connecting to ${window.nuiHandoverData.serverAddress}`);
 		PlayerNick = window.nuiHandoverData.name;
 	});*/
+
+
+	// Make links clickable
+	document.querySelectorAll('a').forEach(element => {
+	element.addEventListener('click', e => {
+  	e.preventDefault()
+    
+    window.invokeNative('openUrl', e.target.href)
+  })
+})
+
 </script>
 
 </html>
