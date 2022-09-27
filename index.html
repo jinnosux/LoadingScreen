@@ -724,14 +724,14 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 		event.target.playVideo();
 	}
 
-	// Make links clickable
-	document.getElementsByClassName('icons').forEach(element => {
-	element.addEventListener('click', e => {
-  	e.preventDefault()
+// 	// Make links clickable
+// 	document.getElementsByClassName('icons').forEach(element => {
+// 	element.addEventListener('click', e => {
+//   	e.preventDefault()
     
-    window.invokeNative('openUrl', e.target.href)
-  })
-})
+//     window.invokeNative('openUrl', e.target.href)
+//   })
+// })
 
 </script>
 
