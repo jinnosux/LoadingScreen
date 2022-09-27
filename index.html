@@ -724,14 +724,8 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 		event.target.playVideo();
 	}
 
-	/*window.addEventListener('DOMContentLoaded', () => {
-		console.log(`You are connecting to ${window.nuiHandoverData.serverAddress}`);
-		PlayerNick = window.nuiHandoverData.name;
-	});*/
-
-
 	// Make links clickable
-	document.querySelectorAll('a').forEach(element => {
+	document.getElementsByClassName('icondiv').forEach(element => {
 	element.addEventListener('click', e => {
   	e.preventDefault()
     
