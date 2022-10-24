@@ -160,7 +160,7 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 			margin: -5px;
 			border-radius: inherit;
 			background-color: #373740;
-			background-image: repeating-linear-gradient(153deg, #413644 -18%, #4e4e4e -23%, red 25%, #0089ff 63%, #4E4E4F 90%);
+			background-image: repeating-linear-gradient(153deg, #413644 -18%, #4e4e4e -23%, #ff6a01 25%, #056802 63%, #4E4E4F 90%);
 			border-radius: .5em;
 			-webkit-animation: fadein 3.5s;
 			/* Safari, Chrome and Opera > 12.1 */
@@ -539,7 +539,7 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 	</div>
 	<!-- <div class="background-container"></div> -->
 	<div class="video-container">
-		<video src="/assets/garages_update.mp4" autoplay muted loop></video>
+		<video src="/assets/halloween_intro.mp4" autoplay muted loop></video>
 	</div>
 
 	<div id='logo-container'>
@@ -667,15 +667,21 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 
 		//$('#gradient-backdrop').html('<div class="cnrnglogo"></div>');	
 		$('#logo-container').html('<div class="cnrnglogo"></div>');
-		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
-		// $('html').css({"background-image":"url(./imgs/backgrounds/bg"+Math.floor(Math.random() * 7)+".jpg)"});
-		// $('#bgmusic').html('<iframe name="player" id="player" frameborder="0" height="1px" width="1px" border="0" src="https://youtube.com/embed/'+music_selected+'?&autoplay=1&controls=0&showinfo=0&autohide=1&enablejsapi=1&origin=http://127.0.0.1:5500" allow="autoplay"></iframe>');
+		
+		// Halloween Logo:
+		$('.cnrnglogo').css({ "background": "url(./imgs/ng_halloween_1.png) no-repeat", "background-size": "contain"})
 
+		// Regular logo rotation:
+		//$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
+		
 		let degrees = 0;
 		runner = setInterval(function () {
 			degrees = degrees + 10;
 			if (degrees >= 355) { degrees = 0; }
-			$('.gradient-box-container').css({ "background-image": "repeating-linear-gradient(" + degrees + "deg, #413644 -18%,#4e4e4e -23%, #ff0000 25%, #0089ff 63%, #4E4E4F 90%)" });
+			//Halloween colors:
+			$('.gradient-box-container').css({ "background-image": "repeating-linear-gradient(" + degrees + "deg, #413644 -18%,#4e4e4e -23%, #ff6a01 25%, #056802 63%, #4E4E4F 90%)" });
+			//Regular Colors:
+			//$('.gradient-box-container').css({ "background-image": "repeating-linear-gradient(" + degrees + "deg, #413644 -18%,#4e4e4e -23%, #ff0000 25%, #0089ff 63%, #4E4E4F 90%)" });
 		}, 90)
 	});
 
