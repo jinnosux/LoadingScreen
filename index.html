@@ -1124,9 +1124,6 @@ input {
 					</svg>
 				</label>
 			</div>
-			<!-- dribbble -->
-			<a class="dribbble" href="https://dribbble.com/shots/7616797-Volume-Toggle" target="_blank"><img src="https://dribbble.com/assets/logo-small-2x-9fe74d2ad7b25fba0f50168523c15fda4c35534f9ea0b1011179275383035439.png" alt=""></a>
-		
 		
 		</div>
 	</div>
@@ -1219,6 +1216,7 @@ input {
 		var VolMax = 1.0;
 		return Math.floor((PlayerVol / VolMax) * 100);
 	}
+	var userVolume = localStorage.getItem("volume");
 
 	function onPlayerReady(event) {
 		/*$.getJSON('https://cnr.ng/calls/playervolume.php?username='+ window.nuiHandoverData.name, function(data) {
@@ -1230,10 +1228,11 @@ input {
 			event.target.playVideo();
 			console.log('Current Music Vol: '+event.target.getVolume()); // Shows 100% everytime
 		});*/
-		event.target.setVolume(100);
+		event.target.setVolume(userVolume * 10);
 		event.target.seekTo(start_time);
 		event.target.playVideo();
 	}
+
 
 	var RangeSlider = function RangeSlider($elem) {
 	this.$input = $elem.find('.range__input');
@@ -1247,6 +1246,8 @@ input {
 			'#e74c3c',
 			'#c0392b'
 		];
+
+		$('.range__input').attr('value',userVolume);
 		
 		this.$input.on('mousemove', this._onMove.bind(this));
 		
@@ -1273,9 +1274,11 @@ input {
 
 		RangeSlider.prototype._updated = function() {
 		
+		
 		var val = this.$input.val();
 		this.$display.html( val );
 		player.setVolume(val*10);
+		localStorage.setItem("volume", val);
 
 	}
 		$('.range').each(function() {
@@ -1286,10 +1289,17 @@ input {
 
 		function toggleMute(element){
 		player.mute();
+		localStorage.setItem("volume", 0);
 		if (!element.checked) {
 			player.unMute();
+			localStorage.setItem("volume", 100);
 		}
 		}
+
+
+// Store
+console.log(localStorage.getItem("volume"));
+
 
 // 	// Make links clickable
 // 	document.getElementsByClassName('icons').forEach(element => {
