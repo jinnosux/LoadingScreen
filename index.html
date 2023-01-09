@@ -1218,6 +1218,8 @@ input {
 		return Math.floor((PlayerVol / VolMax) * 100);
 	}
 
+	var userVolume = localStorage.getItem("volume");
+
 	function onPlayerReady(event) {
 		/*$.getJSON('https://cnr.ng/calls/playervolume.php?username='+ window.nuiHandoverData.name, function(data) {
 			//document.querySelector('#namePlaceholder').innerText = `Player: ${window.nuiHandoverData.name}<br /> Vol: ${data.UserVolume}<br />`;
@@ -1228,7 +1230,7 @@ input {
 			event.target.playVideo();
 			console.log('Current Music Vol: '+event.target.getVolume()); // Shows 100% everytime
 		});*/
-		event.target.setVolume(100);
+		event.target.setVolume(userVolume ? userVolume : 100);
 		event.target.seekTo(start_time);
 		event.target.playVideo();
 	}
@@ -1246,6 +1248,8 @@ input {
 			'#c0392b'
 		];
 		
+		$('.range__input').attr('value',userVolume);
+
 		this.$input.on('mousemove', this._onMove.bind(this));
 		
 		this.$input.on('change', this._onChange.bind(this));
@@ -1274,6 +1278,7 @@ input {
 		var val = this.$input.val();
 		this.$display.html( val );
 		player.setVolume(val*10);
+		localStorage.setItem("volume", val);
 
 	}
 		$('.range').each(function() {
@@ -1284,8 +1289,10 @@ input {
 
 		function toggleMute(element){
 		player.mute();
+		localStorage.setItem("volume", 0);
 		if (!element.checked) {
 			player.unMute();
+			localStorage.setItem("volume", 100);
 		}
 		}
 
