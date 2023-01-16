@@ -1230,9 +1230,14 @@ input {
 			event.target.playVideo();
 			console.log('Current Music Vol: '+event.target.getVolume()); // Shows 100% everytime
 		});*/
-		userVolume *= 10;
-		event.target.setVolume(userVolume ? userVolume : 100);
-		console.log(userVolume)
+		
+		if(userVolume === null){
+			event.target.setVolume(100);
+		} else if(userVolume === 0){
+			event.target.setVolume(0);
+		} else{
+			event.target.setVolume(userVolume * 10);
+		}
 		event.target.seekTo(start_time);
 		event.target.playVideo();
 	}
