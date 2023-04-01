@@ -777,17 +777,6 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 		box-sizing: inherit;
 		}
 
-		body .dribbble {
-		position: fixed;
-		display: block;
-		right: 24px;
-		bottom: 24px;
-		}
-		body .dribbble img {
-		display: block;
-		width: 76px;
-		}
-
 
 		#wrapper{
 			
@@ -1144,9 +1133,7 @@ input {
 					</svg>
 				</label>
 			</div>
-			<!-- dribbble -->
-			<a class="dribbble" href="https://dribbble.com/shots/7616797-Volume-Toggle" target="_blank"><img src="https://dribbble.com/assets/logo-small-2x-9fe74d2ad7b25fba0f50168523c15fda4c35534f9ea0b1011179275383035439.png" alt=""></a>
-		
+
 		
 		</div>
 	</div>
@@ -1341,70 +1328,38 @@ var start_times = [ 0, 4, 0, 0, 0, 14, 15,
     .appendTo("body")
     .attr("readonly", true);
 
-  $(".icondiv").on("click", function () {
-    let link = $(this).data("link");
+	function copyLinkToClipboard(link) {
+  // Create a temporary textarea element
+  const $tempTextarea = $("<textarea>");
 
-    navigator.clipboard.writeText(link).then(
-      function () {
-        console.log("Link copied to clipboard: " + link);
-      },
-      function () {
-        console.error("Failed to copy link to clipboard");
-      }
-    );
+  // Set the value of the textarea to the link
+  $tempTextarea.val(link);
 
-    $(".copied").addClass("shown");
+  // Append the textarea to the document
+  $("body").append($tempTextarea);
 
-    setTimeout(() => {
-      $(".copied").removeClass("shown");
-    }, 2000);
-  });
+  // Select the text in the textarea and copy it to the clipboard
+  $tempTextarea[0].select();
+  document.execCommand("copy");
 
-  // Add a click event handler to the elements you want to copy from
-  $(".icons .cnr").on("click", function () {
-    let link = $(this).data("link");
+  // Remove the textarea from the document
+  $tempTextarea.remove();
 
-    // Set the text of the hidden textarea to the link
-    $textarea.val(link);
+  // Display the "copied" message for 2 seconds
+  const $copiedMessage = $(".copied");
 
-    // Select the text in the textarea and copy it to the clipboard
-    $textarea[0].select();
-    try {
-      document.execCommand("copy");
-      console.log("Link copied to clipboard: " + link);
-    } catch (err) {
-      console.error("Failed to copy link to clipboard");
-    }
+  console.log("Copied link:", link)
+  $copiedMessage.addClass("shown");
+  setTimeout(() => {
+    $copiedMessage.removeClass("shown");
+  }, 2000);
+}
 
-    // Add a "copied" class to the clicked element for 1 second
-    $(".copied").addClass("shown");
-    setTimeout(() => {
-      $(".copied").removeClass("shown");
-    }, 2000);
-  });
-
-    // Add a click event handler to the elements you want to copy from
-	$(".radio").on("click", function () {
-    let link = $(this).data("link");
-
-    // Set the text of the hidden textarea to the link
-    $textarea.val(link);
-
-    // Select the text in the textarea and copy it to the clipboard
-    $textarea[0].select();
-    try {
-      document.execCommand("copy");
-      console.log("Link copied to clipboard: " + link);
-    } catch (err) {
-      console.error("Failed to copy link to clipboard");
-    }
-
-    // Add a "copied" class to the clicked element for 1 second
-    $(".copied").addClass("shown");
-    setTimeout(() => {
-      $(".copied").removeClass("shown");
-    }, 2000);
-  });
+// Add click event handlers to all elements with a "data-link" attribute
+$("[data-link]").on("click", function () {
+  const link = $(this).data("link");
+  copyLinkToClipboard(link);
+});
 
   // Remove the hidden textarea when it's no longer needed
   $(window).on("unload", function () {
