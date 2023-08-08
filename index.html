@@ -465,6 +465,17 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 			fill: #0079bf;
 		}
 
+		.bi-tiktok{
+			-webkit-transition: all 200ms linear;
+			-moz-transition: all 200ms linear;
+			-ms-transition: all 200ms linear;
+			-o-transition: all 200ms linear;
+			transition: all 200ms linear;
+		}
+		.bi-tiktok:hover {
+			fill: #25f4ee;
+		}
+
 		#loadtime {
 			margin-top: 10px;
 			border-radius: .5em;
@@ -1097,15 +1108,9 @@ input {
 					</svg>
 			</div>
 
-			<div class="icondiv" data-link="https://cnr.ng/roadmap">
-				<svg
-						xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-kanban"
-						viewBox="0 0 16 16">
-						<path
-							d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h11zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11z" />
-						<path
-							d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3z" />
-					</svg>
+			<div class="icondiv" data-link="https://tiktok.com/@cnr_ng">
+				<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="white" class="bi bi-tiktok" viewBox="0 0 16 16">
+					 <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/> </svg>
 			</div>
 
 		</div>
@@ -1173,10 +1178,12 @@ input {
 	setInterval(setTime, 1000);
 
 	var music_bank = [ 'D3Lvm1tv1mE', 'lv6mWA7OQiM', 'F2_pg8xd1To','Kam8XAeDvVU', 'lal3nu4QUHk','p32T8Re1sTs', '5p7Am5QO3X8',
-                  '8ruNS34sxAs', 'E-hdKc4vbw4','L2cstHtZ4gQ','bBD8M3WFrAw','SSKRLZSzCXA','vDxEW31L5kg','lDsmUT0LteM'];
+                  	   '8ruNS34sxAs','L2cstHtZ4gQ','bBD8M3WFrAw','SSKRLZSzCXA','vDxEW31L5kg','lDsmUT0LteM', 'k8--F9pajkI',
+				  	   'k8--F9pajkI', `k7UZxKN22mw`, ];
 
-var start_times = [ 0, 4, 0, 0, 0, 14, 15,
-                   13, 0, 31, 0, 39, 12, 0];
+	var start_times = [ 0, 4, 0, 0, 0, 14, 15,
+                    	13, 31, 0, 39, 12, 0, 0,
+						119, 0, ];
 
 	var randIdx = Math.floor(Math.random() * music_bank.length);
 	var music_selected = music_bank[randIdx];
