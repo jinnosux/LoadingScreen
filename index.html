@@ -464,6 +464,19 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 			fill: #0079bf;
 		}
 
+		
+		.bi-tiktok{
+			-webkit-transition: all 200ms linear;
+			-moz-transition: all 200ms linear;
+			-ms-transition: all 200ms linear;
+			-o-transition: all 200ms linear;
+			transition: all 200ms linear;
+		}
+		.bi-tiktok:hover {
+			fill: #25f4ee;
+		}
+
+
 		#loadtime {
 			margin-top: 10px;
 			border-radius: .5em;
@@ -490,9 +503,9 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 		}
 		#loadtime2{
 			display: flex;
-			border-radius: .5em;
+			border-radius: 1.5em;
 			background-color: rgba(0, 0, 0, 0.7);
-			padding: 10px;
+			padding: 5px;
 			box-shadow: 0 0 8px #000;
 			text-align: center;
 			/* -webkit-animation: fadein 5.5s;
@@ -999,6 +1012,27 @@ input {
 .range__input:hover::-ms-fill-lower, .range__input:focus::-ms-fill-lower {
   background: blue;
 }
+
+.copied{
+	display: none;
+	width: 220px;
+	height: 35px;
+	position: fixed;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 5px;
+	box-shadow: 0 0 8px #000;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.shown{
+	display: block;
+}
+
+
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="./assets/snow.js"></script>
@@ -1013,7 +1047,7 @@ input {
 	</div>
 	<!-- <div class="background-container"></div> -->
 	<div class="video-container">
-		<video src="/assets/videos/video0.mp4" autoplay muted loop></video>
+		<video src="/assets/videos/snow.mp4" autoplay muted loop></video>
 	</div>
 
 	<div id='logo-container'>
@@ -1061,35 +1095,35 @@ input {
 		</div>
 		<div class="icons">
 
-			<div class="cnr">
-				<a href="https://cnr.ng/"><img src="imgs/nglogo.png"></img></a>
+			<div class="cnr" data-link="https://cnr.ng/">
+				<img src="imgs/nglogo.png"></img>
 			</div>
-			<div class="icondiv">
-				<a href="https://cnr.ng/discord"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+
+			<div class="cnr" data-link="https://map.cnr.ng/">
+				<img src="imgs/map2.png"></img>
+			</div>
+
+
+			<div class="icondiv" data-link="https://cnr.ng/discord">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40"
 						height="40" fill="white" class="bi bi-discord" viewBox="0 0 16 16">
 						<path
 							d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
-					</svg></a>
+					</svg>
 			</div>
 
-			<div class="icondiv">
-				<a href="https://cnr.ng/youtube"><svg
+			<div class="icondiv" data-link="https://cnr.ng/youtube">
+				<svg
 						xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-youtube"
 						viewBox="0 0 16 16">
 						<path
 							d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
-					</svg></a>
+					</svg>
 			</div>
 
-			<div class="icondiv">
-				<a href="https://cnr.ng/roadmap"><svg
-						xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-kanban"
-						viewBox="0 0 16 16">
-						<path
-							d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h11zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11z" />
-						<path
-							d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3z" />
-					</svg></a>
+			<div class="icondiv" data-link="https://tiktok.com/@cnr_ng">
+				<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="white" class="bi bi-tiktok" viewBox="0 0 16 16">
+					 <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/> </svg>
 			</div>
 
 		</div>
@@ -1100,8 +1134,8 @@ input {
 		</div>
 		<div id="centered">
 		<div id="loadtime2">
-			<div id="wrapper1">
-				<a href="https://radio.cnr.ng"><img src="./imgs/radio.png"></a>
+			<div id="wrapper1" class="radio" data-link="https://radio.cnr.ng/">
+				<img src="./imgs/radio.png">
 			</div>
 			<div id="wrapper">
 				<div class="inner">
@@ -1130,6 +1164,8 @@ input {
 	<span id="namePlaceholder">
 		<!--holder-->
 	</span>
+	
+	<div class="copied">Copied link to clipboard!</div>
 </body>
 <script>
 	let PlayerVol;
@@ -1225,7 +1261,14 @@ input {
 			event.target.playVideo();
 			console.log('Current Music Vol: '+event.target.getVolume()); // Shows 100% everytime
 		});*/
-		event.target.setVolume(userVolume ? userVolume : 100);
+		if(userVolume === null){
+			event.target.setVolume(100);
+		} else if(userVolume === 0){
+			event.target.setVolume(0);
+		} else{
+			event.target.setVolume(userVolume * 10);
+		}
+
 		event.target.seekTo(start_time);
 		event.target.playVideo();
 	}
@@ -1292,6 +1335,61 @@ input {
 			localStorage.setItem("volume", 100);
 		}
 		}
+
+
+	var $textarea = $("<textarea/>")
+    .css({
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "0.1em",
+      height: "0.1em",
+      padding: 0,
+      border: "none",
+      outline: "none",
+      boxShadow: "none",
+      background: "transparent",
+    })
+    .appendTo("body")
+    .attr("readonly", true);
+
+	function copyLinkToClipboard(link) {
+  // Create a temporary textarea element
+  const $tempTextarea = $("<textarea>");
+
+  // Set the value of the textarea to the link
+  $tempTextarea.val(link);
+
+  // Append the textarea to the document
+  $("body").append($tempTextarea);
+
+  // Select the text in the textarea and copy it to the clipboard
+  $tempTextarea[0].select();
+  document.execCommand("copy");
+
+  // Remove the textarea from the document
+  $tempTextarea.remove();
+
+  // Display the "copied" message for 2 seconds
+  const $copiedMessage = $(".copied");
+
+  console.log("Copied link:", link)
+  $copiedMessage.addClass("shown");
+  setTimeout(() => {
+    $copiedMessage.removeClass("shown");
+  }, 2000);
+}
+
+// Add click event handlers to all elements with a "data-link" attribute
+$("[data-link]").on("click", function () {
+  const link = $(this).data("link");
+  copyLinkToClipboard(link);
+});
+
+  // Remove the hidden textarea when it's no longer needed
+  $(window).on("unload", function () {
+    $textarea.remove();
+  });
 
 
 // 	// Make links clickable
