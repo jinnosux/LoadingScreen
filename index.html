@@ -1046,8 +1046,14 @@ input {
 		<!-- <iframe name="bgmusic" "frameborder="0" height="0px" width="0px" border="0"></iframe> -->
 	</div>
 	<!-- <div class="background-container"></div> -->
+
+	
+	<!-- <div class="video-container">
+		<video src="/assets/videos/snow1.mp4" autoplay muted loop></video>
+	</div> -->
+
 	<div class="video-container">
-		<video src="/assets/videos/snow.mp4" autoplay muted loop></video>
+		<video id="randomVideo" autoplay muted loop></video>
 	</div>
 
 	<div id='logo-container'>
@@ -1391,6 +1397,17 @@ $("[data-link]").on("click", function () {
     $textarea.remove();
   });
 
+  $(document).ready(function () {
+        var videoUrls = [
+            "/assets/videos/snow1.mp4",
+            "/assets/videos/snow2.mp4",
+            "/assets/videos/snow3.mp4"
+        ];
+
+        var randomIndex = Math.floor(Math.random() * videoUrls.length);
+
+        $("#randomVideo").attr("src", videoUrls[randomIndex]);
+    });
 
 // 	// Make links clickable
 // 	document.getElementsByClassName('icons').forEach(element => {
