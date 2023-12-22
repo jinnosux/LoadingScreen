@@ -1407,6 +1407,11 @@ $("[data-link]").on("click", function () {
         var randomIndex = Math.floor(Math.random() * videoUrls.length);
 
         $("#randomVideo").attr("src", videoUrls[randomIndex]);
+		// Hide the video initially
+		$("#randomVideo").hide();
+
+		// Fade in the video with a duration of 0.7 seconds
+		$("#randomVideo").fadeIn(700);
     });
 
 // 	// Make links clickable
