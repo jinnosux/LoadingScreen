@@ -1034,7 +1034,7 @@ input {
 	</div>
 	<!-- <div class="background-container"></div> -->
 	<div class="video-container">
-		<video src="/assets/kat.mp4" autoplay muted loop></video>
+		<video src="/assets/bank.mp4" autoplay muted loop></video>
 	</div>
 
 	<div id='logo-container'>
@@ -1048,19 +1048,20 @@ input {
 					<tr>
 						<td style="text-align:top;">
 							<ul>
-								<li>No deathmatching/random killing</li>
-								<li>Respect other players</li>
-								<li>No advertising/spamming</li>
+								<li><span style='color:red;text-decoration:line-through'>No deathmatching/random killing</span></li>
+								<li><span style='color:red;text-decoration:line-through'>Respect other players</span></li>
+								<li><span style='color:red;text-decoration:line-through'>No advertising/spamming</span></li>
 							</ul>
 						</td>
 						<td>
 							<ul>
-								<li>No cheating/illegal advantage</li>
-								<li>Do not quit to avoid anything</li>
-								<li>Read <b>
+								<li><span style='color:red;text-decoration:line-through'>No random hits</span></li>
+								<li><span style='color:red;text-decoration:line-through'>Do not quit to avoid anything</span></li>
+
+								<li><span style='color:red;text-decoration:line-through'>Read <b>
 										<font color='#FFFF00'>/rules</font>
 									</b> and <b>
-										<font color='#FFFF00'>/faq</font>
+										<font color='#FFFF00'>/faq</font></span>
 									</b></li>
 							</ul>
 						</td>
@@ -1071,12 +1072,12 @@ input {
 		<div id="AlertWrapper" class="AlertWrapper" style="--d:50px;--angle:-30deg;--sinus:0.5;">
 			<div class="AlertContent">
 				<br><b>
-					<font color='#FFFF00'>Open Beta Disclaimer</font><br><br>
-					Please note that the current iteration of the game mode is still in development, and the current
-					features may not be final and are subject to change. The feedback from the community is
-					welcome!
+					<font color='red'>Emergency Broadcast System</font><br><br>
+					Weapons of class 4 and lower have been authorized for use during the purge.
+					Commencing at the siren, any and all crime, including murder, will be legal for 12 hours.
+					Police, fire and medical services will be unavailable until tomorrow morning when the Purge concludes.
 					<br><br>
-					<i>Welcome and have fun!</i>
+					<i>Welcome and good luck!</i>
 				</b><br><br>
 			</div>
 		</div>
@@ -1177,9 +1178,11 @@ input {
 	var totalSeconds = 0;
 	setInterval(setTime, 1000);
 
-	var music_bank = [ 'D3Lvm1tv1mE', 'lv6mWA7OQiM', 'F2_pg8xd1To','Kam8XAeDvVU', 'lal3nu4QUHk','p32T8Re1sTs', '5p7Am5QO3X8',
-                  	   '8ruNS34sxAs','L2cstHtZ4gQ','bBD8M3WFrAw','SSKRLZSzCXA','vDxEW31L5kg','lDsmUT0LteM', 'k8--F9pajkI',
-				  	   'k8--F9pajkI', `k7UZxKN22mw`, ];
+	// var music_bank = [ 'D3Lvm1tv1mE', 'lv6mWA7OQiM', 'F2_pg8xd1To','Kam8XAeDvVU', 'lal3nu4QUHk','p32T8Re1sTs', '5p7Am5QO3X8',
+    //               	   '8ruNS34sxAs','L2cstHtZ4gQ','bBD8M3WFrAw','SSKRLZSzCXA','vDxEW31L5kg','lDsmUT0LteM', 'k8--F9pajkI',
+	// 			  	   'k8--F9pajkI', `k7UZxKN22mw`, ];
+
+	var music_bank = ['hYWnJXhQfMg'];
 
 	var start_times = [ 0, 4, 0, 0, 0, 14, 15,
                     	13, 31, 0, 39, 12, 0, 0,
@@ -1193,7 +1196,8 @@ input {
 
 		//$('#gradient-backdrop').html('<div class="cnrnglogo"></div>');	
 		$('#logo-container').html('<div class="cnrnglogo"></div>');
-		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
+		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + 3 + ".png) no-repeat", "background-size": "contain" });
+		// $('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
 		// $('html').css({"background-image":"url(./imgs/backgrounds/bg"+Math.floor(Math.random() * 7)+".jpg)"});
 		// $('#bgmusic').html('<iframe name="player" id="player" frameborder="0" height="1px" width="1px" border="0" src="https://youtube.com/embed/'+music_selected+'?&autoplay=1&controls=0&showinfo=0&autohide=1&enablejsapi=1&origin=http://127.0.0.1:5500" allow="autoplay"></iframe>');
 
