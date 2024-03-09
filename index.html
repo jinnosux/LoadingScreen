@@ -477,7 +477,6 @@ jinnosuke, Sept 16th 2022 - Icon hovers, lower volume, other minor fixes
 		}
 
 		#loadtime {
-			color: red;
 			font-weight: bold;
 			margin-top: 10px;
 			border-radius: .5em;
@@ -1036,7 +1035,7 @@ input {
 	</div>
 	<!-- <div class="background-container"></div> -->
 	<div class="video-container">
-		<video src="/assets/bank.mp4" autoplay muted loop></video>
+		<video src="/assets/prim_vid_compressed.mp4" autoplay muted loop></video>
 	</div>
 
 	<div id='logo-container'>
@@ -1050,20 +1049,19 @@ input {
 					<tr>
 						<td style="text-align:top;">
 							<ul>
-								<li><span style='color:red;text-decoration:line-through'>No deathmatching/random killing</span></li>
-								<li><span style='color:red;text-decoration:line-through'>Respect other players</span></li>
-								<li><span style='color:red;text-decoration:line-through'>No spamming</span></li>
+								<li>Respect other players</li>
+								<li>No deathmatching/random killing</li>
+								<li>No advertising/spamming</li>
 							</ul>
 						</td>
 						<td>
 							<ul>
-								<li><span style='color:red;text-decoration:line-through'>No random hits</span></li>
-								<li><span style='color:red;text-decoration:line-through'>Do not quit to avoid anything</span></li>
-
-								<li><span style='color:red;text-decoration:line-through'>Read <b>
-										<font color='#FFFF00'>/rules</font>
+								<li>No cheating/illegal mods</span></li>
+								<li>Do not quit to avoid anything</span></li>
+								<li>Read <b>
+										<font color="yellow">/rules</font>
 									</b> and <b>
-										<font color='#FFFF00'>/faq</font></span>
+										<font color="yellow">/faq</font></span>
 									</b></li>
 							</ul>
 						</td>
@@ -1074,10 +1072,13 @@ input {
 		<div id="AlertWrapper" class="AlertWrapper" style="--d:50px;--angle:-30deg;--sinus:0.5;">
 			<div class="AlertContent">
 				<br><b>
-					<font color='red'>Emergency Broadcast System</font><br><br>
-					Weapons of class 4 and lower have been authorized for use during the purge.
-					Commencing at the siren, any and all crime, including murder, will be legal for 24 hours.
-					Police, fire and medical services will be unavailable until tomorrow morning when the Purge concludes.
+					<font color="yellow">Version 3.0</font><br><br>
+					- Create your own Organization and dominate Los Santos<br>
+					- Manhunt system for criminals willing to challenge the authorities<br>
+					- New Police System with new Emergency Vehicles<br>
+					- New DLC: Chop Shop vehicles & content<br>
+					- Gameplay balance, QoL changes, bugfixes and more<br>
+					- Fresh start for everyone!
 					<br><br>
 					<i>Welcome and good luck!</i>
 				</b><br><br>
@@ -1117,13 +1118,13 @@ input {
 			</div>
 
 		</div>
-		<!-- <div id="loadtime">
+		<div id="loadtime">
 			Average load time between 00:10 <-> 00:40 secs<br />Your time: [<label id="minutes">00</label>:<label
 					id="seconds">00</label>]
-		</div> -->
-		<div id="loadtime">
-			End of Purge - [<span id="countdownTimer">00:00:00</span>]
 		</div>
+		<!-- <div id="loadtime">
+			End of Purge - [<span id="countdownTimer">00:00:00</span>]
+		</div> -->
 
 		</div>
 		<div id="centered">
@@ -1188,11 +1189,9 @@ input {
     //               	   '8ruNS34sxAs','L2cstHtZ4gQ','bBD8M3WFrAw','SSKRLZSzCXA','vDxEW31L5kg','lDsmUT0LteM', 'k8--F9pajkI',
 	// 			  	   'k8--F9pajkI', `k7UZxKN22mw`, ];
 
-	var music_bank = ['hYWnJXhQfMg'];
+	var music_bank = ['j8dPsMohkQs'];
 
-	var start_times = [ 0, 4, 0, 0, 0, 14, 15,
-                    	13, 31, 0, 39, 12, 0, 0,
-						119, 0, ];
+	var start_times = [0, 0];
 
 	var randIdx = Math.floor(Math.random() * music_bank.length);
 	var music_selected = music_bank[randIdx];
@@ -1202,8 +1201,7 @@ input {
 
 		//$('#gradient-backdrop').html('<div class="cnrnglogo"></div>');	
 		$('#logo-container').html('<div class="cnrnglogo"></div>');
-		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + 3 + ".png) no-repeat", "background-size": "contain" });
-		// $('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
+		$('.cnrnglogo').css({ "background": "url(./imgs/logos/logo" + Math.floor(Math.random() * 8) + ".png) no-repeat", "background-size": "contain" });
 		// $('html').css({"background-image":"url(./imgs/backgrounds/bg"+Math.floor(Math.random() * 7)+".jpg)"});
 		// $('#bgmusic').html('<iframe name="player" id="player" frameborder="0" height="1px" width="1px" border="0" src="https://youtube.com/embed/'+music_selected+'?&autoplay=1&controls=0&showinfo=0&autohide=1&enablejsapi=1&origin=http://127.0.0.1:5500" allow="autoplay"></iframe>');
 
@@ -1215,32 +1213,9 @@ input {
 		}, 90)
 	});
 
-    // PURGE
-	// Set the target date and time for the countdown (YYYY-MM-DD HH:mm:ss)
-	var targetDate = new Date("2024-03-09T08:00:00Z").getTime();
-	function updateCountdown() {
-    var currentDate = new Date().getTime();
-    var timeDifference = targetDate - currentDate;
-
-    if (timeDifference > 0) {
-		var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-      document.getElementById("countdownTimer").innerHTML =
-        pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
-
-      setTimeout(updateCountdown, 1000); // Update every 1 second
-    } else {
-      document.getElementById("countdown").innerHTML = "The Purge has begun!";
-    }
-  }
-
   function pad(num) {
     return num < 10 ? "0" + num : num;
   }
-	// Initial call to start the countdown
-	updateCountdown();
 	var tag = document.createElement('script');
 
 	tag.src = "https://www.youtube.com/iframe_api";
