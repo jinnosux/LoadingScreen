@@ -1191,7 +1191,7 @@ input {
 
 	var music_bank = ['j8dPsMohkQs'];
 
-	var start_times = [0];
+	var start_times = [0, 0];
 
 	var randIdx = Math.floor(Math.random() * music_bank.length);
 	var music_selected = music_bank[randIdx];
@@ -1216,8 +1216,6 @@ input {
   function pad(num) {
     return num < 10 ? "0" + num : num;
   }
-	// Initial call to start the countdown
-	updateCountdown();
 	var tag = document.createElement('script');
 
 	tag.src = "https://www.youtube.com/iframe_api";
