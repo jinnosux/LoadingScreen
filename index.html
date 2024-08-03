@@ -1021,6 +1021,26 @@ input {
 	display: block;
 }
 
+.bottom-credits {
+  position: fixed;
+  bottom: 15px;
+  left: 22px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 8px; /* Padding inside the div */
+  border-radius: 3px; /* Rounded corners */
+  font-size: 14px; /* Font size */
+  z-index: 1000; /* Ensure it appears on top */
+  -webkit-animation: fadein 1.5s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1.5s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 1.5s;
+  /* Internet Explorer */
+  -o-animation: fadein 1.5s;
+  /* Opera < 12.1 */
+  animation: fadein 1.5s;
+}
 
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -1159,6 +1179,9 @@ input {
 		<!--holder-->
 	</span>
 	<div class="copied">Copied link to clipboard!</div>
+	<div class="bottom-credits">
+		Video Showcase: <font color="#cb7cd0"><b>Primitive</b></font>
+	</div>
 </body>
 <script>
 	let PlayerVol;
